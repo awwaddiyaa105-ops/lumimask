@@ -179,8 +179,8 @@ const EXPLORE: {
 }[] = [
   { href: "#lumimask", icon: ScanFace, title: "LED Therapy Mask", desc: "Seven light modes, ten-minute sessions and full-face coverage." },
   { href: "#lumipure", icon: Droplets, title: "LumiPure", desc: "Water-assisted pore cleansing with interchangeable tips." },
-  { href: "https://instagram.com", icon: Instagram, title: "Instagram", desc: "Rituals, routines and real results from the LUMIMASK community.", external: true },
-  { href: "https://tiktok.com", icon: Music2, title: "TikTok", desc: "Short rituals and before-afters — follow along for your daily glow.", external: true },
+  { href: "https://www.instagram.com/shop.lumimask/", icon: Instagram, title: "Instagram", desc: "Rituals, routines and real results from the LUMIMASK community.", external: true },
+  { href: "https://www.tiktok.com/@xxshoplumimask", icon: Music2, title: "TikTok", desc: "Short rituals and before-afters — follow along for your daily glow.", external: true },
   { href: "#love", icon: Cpu, title: "Our Technology", desc: "The engineering behind every mode, strap and silicone edge." },
   { href: "/about", icon: Heart, title: "About LUMIMASK", desc: "Why we built a calmer kind of at-home skincare.", route: true },
 ];
