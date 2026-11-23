@@ -37,6 +37,7 @@ import pureTankAsset from "@/assets/lumipure-water-tank.webp.asset.json";
 import pureAccessoriesAsset from "@/assets/lumipure-accessories.webp.asset.json";
 import pureRoseAsset from "@/assets/lumipure-rose.webp.asset.json";
 import { BuyButton } from "@/components/BuyButton";
+import { MoovExperience } from "@/components/MoovExperience";
 import { BundleOffer } from "@/components/BundleOffer";
 import { Button } from "@/components/ui/button";
 import {
@@ -196,7 +197,8 @@ function Index() {
   const currentPureImage = PURE_GALLERY[activePureImage] ?? PURE_GALLERY[0]!;
 
   return (
-    <div id="top" className="relative min-h-screen overflow-x-hidden pb-28 md:pb-0">
+    <div id="top" className="moov-site relative min-h-screen overflow-x-hidden pb-28 md:pb-0">
+      <MoovExperience />
       {/* Layered atmospheric background — burgundy glows, faint diagonals, geometry */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-diagonal opacity-[0.35]" />
@@ -247,17 +249,17 @@ function Index() {
       </header>
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative">
+      <section className="moov-hero relative">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:pb-28 md:pt-16">
           {/* Left column */}
-          <div className="order-2 md:order-1">
+          <div className="order-1">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
               <Sparkles className="size-3.5" /> The future of skincare
             </p>
-            <h1 className="font-display text-[clamp(2.75rem,8.5vw,6.5rem)] font-bold uppercase leading-[0.9] tracking-tight">
-              <span className="block">Your Skin.</span>
-              <span className="block">Your Ritual.</span>
-              <span className="block">
+            <h1 className="moov-hero-title font-display text-[clamp(2.75rem,8.5vw,6.5rem)] font-bold uppercase leading-[0.9] tracking-tight">
+              <span className="moov-hero-line block">Your Skin.</span>
+              <span className="moov-hero-line block">Your Ritual.</span>
+              <span className="moov-hero-line block">
                 Your <span className="text-gold">Glow.</span>
               </span>
             </h1>
@@ -290,8 +292,8 @@ function Index() {
           </div>
 
           {/* Right column — premium product showcase card */}
-          <div className="order-1 md:order-2">
-            <div className="relative overflow-hidden rounded-[2rem] border border-primary/25 bg-glass-strong p-6 shadow-glow md:p-8">
+          <div className="order-2">
+            <div className="moov-hero-art relative overflow-hidden rounded-[2rem] border border-primary/25 bg-glass-strong p-6 shadow-glow md:p-8">
               <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-burgundy opacity-70 blur-3xl" />
               <div className="relative flex items-center gap-3">
                 <span className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-primary/30">
@@ -337,6 +339,14 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <div className="moov-marquee" aria-hidden="true">
+        <div className="moov-marquee-track">
+          {Array.from({ length: 4 }, (_, index) => (
+            <span key={index}>LIGHT UP YOUR RITUAL <b>✳</b> SKINCARE IN MOTION <b>✳</b></span>
+          ))}
+        </div>
+      </div>
 
       {/* ── Explore / content cards ───────────────────────────────────────── */}
       <section id="explore" className="relative border-t border-primary/10">

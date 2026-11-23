@@ -307,3 +307,173 @@
 @utility animate-drift {
   animation: drift 12s ease-in-out infinite;
 }
+
+/* LumiMask's own kinetic studio direction: cobalt, paper, oversized type. */
+:root {
+  --background: #2938ed;
+  --foreground: #fffdf7;
+  --card: #1926b9;
+  --card-foreground: #fffdf7;
+  --popover: #f4f1e9;
+  --popover-foreground: #111422;
+  --primary: #f6f2e8;
+  --primary-foreground: #1725b6;
+  --primary-glow: #cbd3ff;
+  --secondary: #1826bd;
+  --secondary-foreground: #fffdf7;
+  --muted: #1724ac;
+  --muted-foreground: #d2d9ff;
+  --accent: #f4f1e9;
+  --accent-foreground: #1a29c4;
+  --border: #ffffff3d;
+  --input: #ffffff66;
+  --ring: #ffffff;
+  --burgundy: #1725b6;
+  --wine: #101d95;
+  --champagne: #f4f1e9;
+  --gradient-page: radial-gradient(circle at 76% 4%, #5262ff 0%, transparent 30%), linear-gradient(135deg, #2938ed, #1d2bcc 72%);
+  --gradient-glow: radial-gradient(circle at 50% 42%, #e0e4ff6b, #6680ff3d 43%, transparent 73%);
+  --gradient-primary: linear-gradient(125deg, #fffefa, #e0e6ff);
+  --gradient-gold-text: linear-gradient(100deg, #fffefa, #d7e1ff 55%, #fffefa);
+  --gradient-burgundy: linear-gradient(145deg, #f4f1e9, #e5e9ff);
+  --gradient-card: linear-gradient(145deg, #2535d8, #1724b4);
+  --gradient-fade: linear-gradient(to top, #1926b9, transparent 80%);
+  --shadow-glow: 0 24px 80px -32px #070f80b3;
+  --shadow-card: 0 22px 58px -34px #1019867a;
+}
+
+html { scroll-padding-top: 5rem; }
+body { overflow-x: hidden; }
+.moov-site { isolation: isolate; }
+.moov-site > [aria-hidden].pointer-events-none.fixed { opacity: .32; }
+.moov-site header { transition: transform .35s ease; }
+.moov-site header > div {
+  border: 1px solid #ffffff66;
+  background: #1827b9da;
+  box-shadow: 0 16px 46px #111d9580;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+.moov-site header nav a { position: relative; }
+.moov-site header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 13px;
+  width: calc(100% - 26px);
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.moov-site header nav a:hover::after { transform: scaleX(1); }
+
+.moov-hero { overflow: hidden; min-height: min(800px, 90svh); }
+.moov-hero::before {
+  content: "";
+  position: absolute;
+  width: min(60vw, 680px);
+  aspect-ratio: 1;
+  top: 2%;
+  right: -14%;
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+  box-shadow: 0 0 0 7vw #ffffff08, 0 0 0 14vw #ffffff05;
+  pointer-events: none;
+  animation: moov-orbit 22s linear infinite;
+}
+.moov-hero-title { font-size: clamp(3.3rem, 6.2vw, 6.1rem); letter-spacing: -.085em; line-height: .98; }
+.moov-hero-line { display: block; width: fit-content; white-space: nowrap; animation: moov-title-rise .95s cubic-bezier(.2,.7,.1,1) both; }
+.moov-hero-line:nth-child(2) { animation-delay: .12s; }
+.moov-hero-line:nth-child(3) { animation-delay: .24s; }
+.moov-hero-art {
+  transform: perspective(1000px) rotateX(var(--moov-tilt-x, 0deg)) rotateY(var(--moov-tilt-y, 0deg));
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease;
+  background: #f4f1e9;
+  color: #111422;
+  box-shadow: 24px 30px 0 #121eae, 0 40px 90px #0b136e80;
+  border-color: #ffffff8c;
+}
+.moov-hero-art .text-muted-foreground { color: #505467; }
+.moov-hero-art .text-primary { color: #2638dc; }
+.moov-hero-art .bg-background\/40 { background: #dce2ff; }
+.moov-hero-art .bg-gradient-primary { background: #2938ed; color: #fff; }
+.moov-hero-art .border-primary\/25 { border-color: #2938ed44; }
+.moov-hero-art img { transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.moov-hero-art:hover img { transform: scale(1.045); }
+.moov-hero-art .bg-glow { opacity: .3; }
+
+.moov-marquee { overflow: hidden; border-block: 2px solid #131c8e; background: #f4f1e9; color: #1c29c2; transform: rotate(-1.5deg) scale(1.03); }
+.moov-marquee-track { display: flex; width: max-content; animation: moov-marquee 25s linear infinite; }
+.moov-marquee span { display: inline-flex; align-items: center; gap: 1.3rem; padding: .85rem 1.3rem; white-space: nowrap; font: 800 clamp(1.3rem, 2.5vw, 2.2rem)/1 "Space Grotesk", sans-serif; letter-spacing: -.05em; }
+.moov-marquee b { font-size: 1.6em; line-height: .5; }
+
+.moov-site > section:not(.moov-hero) { position: relative; padding-block: 2rem; }
+.moov-site > section:not(.moov-hero):nth-of-type(even),
+.moov-site > section#explore,
+.moov-site > section#lumipure,
+.moov-site > section#love {
+  --background: #f4f1e9;
+  --foreground: #111422;
+  --card: #ffffff;
+  --card-foreground: #111422;
+  --primary: #2938ed;
+  --primary-foreground: #ffffff;
+  --primary-glow: #8b99ff;
+  --muted-foreground: #535b78;
+  --border: #2938ed33;
+  --gradient-card: linear-gradient(145deg, #ffffff, #e9ecff);
+  --gradient-primary: linear-gradient(120deg, #2435e8, #5364ff);
+  --gradient-gold-text: linear-gradient(105deg, #1727bc, #5364ff);
+  --gradient-burgundy: linear-gradient(145deg, #f4f1e9, #e5e9ff);
+  --gradient-glow: radial-gradient(circle, #7080ff52, transparent 70%);
+  background: var(--background);
+  color: var(--foreground);
+}
+.moov-site > section#shop,
+.moov-site > section#lumimask,
+.moov-site > section#faq { background: #202ed1; }
+.moov-site > section#lumipure { background: linear-gradient(125deg, #e8ebff, #f4f1e9 55%); }
+.moov-site > section h2 { font-size: clamp(2.8rem, 7vw, 7rem); line-height: .9; letter-spacing: -.07em; font-weight: 800; }
+.moov-site > section h3 { letter-spacing: -.04em; }
+.moov-site > section .rounded-3xl,
+.moov-site > section .rounded-\[2rem\] { transition: transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease, border-color .4s ease; }
+.moov-site > section .group:hover { transform: translateY(-8px) rotate(-.5deg); box-shadow: 14px 18px 0 #1826b722; }
+.moov-site > section#shop .group:hover,
+.moov-site > section#lumimask .group:hover,
+.moov-site > section#faq .group:hover { box-shadow: 14px 18px 0 #070e7780; }
+.moov-site > section img { transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.moov-site > section .group:hover img { transform: scale(1.035); }
+.moov-site > section#explore .text-muted-foreground,
+.moov-site > section#lumipure .text-muted-foreground,
+.moov-site > section#love .text-muted-foreground { color: #535b78; }
+.moov-site footer { background: #111a90; color: #fffdf7; }
+
+.moov-scroll-progress { position: fixed; inset: 0 0 auto; z-index: 90; height: 4px; background: #fffdf7; transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.moov-cursor { position: fixed; z-index: 100; left: -14px; top: -14px; width: 28px; height: 28px; display: grid; place-items: center; border: 1.5px solid #fff; border-radius: 50%; background: #2434ea; color: #fff; pointer-events: none; opacity: 0; transition: width .25s, height .25s, opacity .25s, background .25s; mix-blend-mode: difference; }
+.moov-cursor span { font-size: 13px; opacity: 0; transition: opacity .2s; }
+.moov-cursor-active { width: 46px; height: 46px; left: -23px; top: -23px; background: #fff; }
+.moov-cursor-active span { opacity: 1; }
+.moov-motion-ready .moov-reveal { opacity: 0; transform: translate3d(0, 46px, 0); clip-path: inset(0 0 8% 0); transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.1,1), clip-path .85s ease; }
+.moov-motion-ready .moov-reveal.moov-visible { opacity: 1; transform: none; clip-path: inset(0); }
+
+@media (hover: hover) and (pointer: fine) {
+  .moov-cursor { opacity: 1; }
+  .moov-site a, .moov-site button { cursor: pointer; }
+}
+@media (max-width: 768px) {
+  .moov-hero { min-height: auto; }
+  .moov-hero-title { font-size: clamp(2.7rem, 10.4vw, 5.5rem); }
+  .moov-hero-art { box-shadow: 12px 15px 0 #121eae; }
+  .moov-site > section:not(.moov-hero) { padding-block: 1rem; }
+  .moov-site > section h2 { font-size: clamp(2.7rem, 11vw, 4.8rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moov-site *, .moov-site *::before, .moov-site *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .moov-cursor { display: none; }
+  .moov-motion-ready .moov-reveal { opacity: 1; transform: none; clip-path: none; }
+}
+@keyframes moov-title-rise { from { opacity: 0; transform: translateY(110%) rotate(2deg); } to { opacity: 1; transform: none; } }
+@keyframes moov-marquee { to { transform: translateX(-50%); } }
+@keyframes moov-orbit { to { transform: rotate(360deg); } }
