@@ -197,7 +197,7 @@ function Index() {
   const currentPureImage = PURE_GALLERY[activePureImage] ?? PURE_GALLERY[0]!;
 
   return (
-    <div id="top" className="moov-site relative min-h-screen overflow-x-hidden pb-28 md:pb-0">
+    <div id="top" className="moov-site relative min-h-screen overflow-x-clip pb-28 md:pb-0">
       <MoovExperience />
       {/* Layered atmospheric background — burgundy glows, faint diagonals, geometry */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
