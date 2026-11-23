@@ -80,12 +80,12 @@ export function MusicPlayer() {
         onEnded={() => setPlaying(false)}
         onError={() => { setError(true); setPlaying(false); }}
       />
-      <div className="overflow-hidden rounded-[1.25rem] border border-primary/40 bg-popover/95 text-popover-foreground shadow-glow backdrop-blur-md">
+      <div className="overflow-hidden rounded-[1.25rem] border border-border bg-card/80 text-card-foreground shadow-card backdrop-blur-md">
       <Button
         variant="ghost"
         aria-label={playing ? "Pause Flashing Lights" : "Play Flashing Lights by Kanye West"}
         onClick={togglePlayback}
-        className="h-16 w-full justify-start gap-3 rounded-none px-3 hover:bg-accent"
+        className="h-16 w-full justify-start gap-3 rounded-none px-3 hover:bg-card"
       >
         <span aria-hidden="true" className={`relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-foreground/20 bg-background motion-safe:animate-[spin_5s_linear_infinite] ${playing ? "motion-safe:[animation-play-state:running]" : "motion-safe:[animation-play-state:paused]"}`}>
           <span className="pointer-events-none absolute inset-0 rounded-full bg-vinyl-highlight" />

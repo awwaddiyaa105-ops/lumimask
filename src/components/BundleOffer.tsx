@@ -44,19 +44,19 @@ export function BundleOffer({ region }: { region: Region }) {
   const offerCopy = getBundleOfferCopy(region.code);
 
   return (
-    <section id="bundle" className="relative overflow-hidden border-t border-border bg-card/30">
+    <section id="bundle" className="relative overflow-hidden border-t border-primary/10 bg-burgundy">
       <div className="pointer-events-none absolute inset-0 bg-glow opacity-60" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-14 md:py-24">
         <div>
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             <Tag className="size-4" /> {BUNDLE_OFFER_NAME}
           </p>
-          <h2 className="mt-4 text-4xl md:text-5xl">
+          <h2 className="mt-4 font-display text-4xl uppercase leading-[0.95] md:text-5xl">
             {hasEnded ? (
               "The Black Friday Deal has ended."
             ) : (
               <>
-                LumiMask and LumiPure, <em className="text-primary text-glow">together</em> for less.
+                LumiMask and LumiPure, <span className="text-gold">together</span> for less.
               </>
             )}
           </h2>
@@ -72,7 +72,7 @@ export function BundleOffer({ region }: { region: Region }) {
               width={572}
               height={1024}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl border border-border object-cover shadow-card"
+              className="aspect-[4/5] w-full rounded-3xl border border-primary/15 object-cover shadow-card"
             />
             <img
               src={pureRoseAsset.url}
@@ -80,12 +80,12 @@ export function BundleOffer({ region }: { region: Region }) {
               width={572}
               height={1024}
               loading="lazy"
-              className="mt-8 aspect-[4/5] w-full rounded-3xl border border-border object-cover shadow-card"
+              className="mt-8 aspect-[4/5] w-full rounded-3xl border border-primary/15 object-cover shadow-card"
             />
           </div>
         </div>
 
-        <div className="rounded-3xl border border-primary/25 bg-surface p-6 shadow-glow md:p-8">
+        <div className="rounded-3xl border border-primary/25 bg-glass-strong p-6 shadow-glow md:p-8">
           <p className="text-sm font-semibold text-foreground">
             {BUNDLE_OFFER_NAME} · LumiMask + LumiPure
           </p>
@@ -104,13 +104,13 @@ export function BundleOffer({ region }: { region: Region }) {
               : "50% off LumiPure when you buy both together. Shipping and taxes, if any, appear at checkout."}
           </p>
 
-          <div className="mt-7 border-t border-border pt-6">
+          <div className="mt-7 border-t border-primary/15 pt-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
               {hasEnded ? "Deal ended" : isActive ? "Time left" : "Deal starts in"}
             </p>
             <div className="mt-3 grid grid-cols-4 gap-2" aria-label="The Black Friday Deal countdown">
               {Object.entries(countdown).map(([unit, value]) => (
-                <div key={unit} className="rounded-2xl border border-border bg-background/60 px-2 py-3 text-center">
+                <div key={unit} className="rounded-2xl border border-primary/15 bg-background/50 px-2 py-3 text-center">
                   <p className="font-display text-2xl tabular-nums md:text-3xl">
                     {String(value).padStart(2, "0")}
                   </p>
@@ -136,15 +136,15 @@ export function BundleOffer({ region }: { region: Region }) {
 
           <div className="mt-7">
             {isActive ? (
-              <BuyButton product="bundle" label={`Buy both · ${bundlePrice}`} className="w-full" />
+              <BuyButton product="bundle" label={`Buy both · ${bundlePrice}`} className="w-full rounded-full" />
             ) : hasEnded ? (
-              <Button asChild variant="outline" size="xl" className="w-full">
+              <Button asChild variant="outline" size="xl" className="w-full rounded-full border-primary/25 bg-transparent">
                 <a href="#shop">
                   <ShoppingBag /> Shop the collection
                 </a>
               </Button>
             ) : (
-              <Button variant="glow" size="xl" className="w-full" disabled>
+              <Button variant="glow" size="xl" className="w-full rounded-full" disabled>
                 <ShoppingBag /> {offerCopy.availableAt}
               </Button>
             )}
